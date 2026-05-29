@@ -1,3 +1,4 @@
+```groovy id="y7jcm2"
 pipeline {
     agent any
 
@@ -22,17 +23,18 @@ pipeline {
             steps {
                 dir('src') {
                     sh 'npm install'
-                    sh 'npm run build'
+                }
             }
         }
 
         stage('Deploy to S3') {
             steps {
-                sh '''
-                aws s3 sync src/public s3://$S3_BUCKET --delete
-                '''
+                sh """
+                    aws s3 sync src/public s3://$S3_BUCKET --delete
+                """
             }
         }
+
     }
 }
-}
+```
