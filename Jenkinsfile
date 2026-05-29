@@ -23,7 +23,9 @@ pipeline {
             steps {
                 dir('src') {
                     sh 'npm install'
-                    sh 'cp /var/www/html/index.html public/index.html'
+                   sh ''' 
+                    echo "<html><body><h1>Welcome to staticpage</h1></body></html>" > public/index.html 
+                    '''
                 }
             }
         }
