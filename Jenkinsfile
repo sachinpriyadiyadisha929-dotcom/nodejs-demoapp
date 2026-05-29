@@ -23,6 +23,7 @@ pipeline {
             steps {
                 dir('src') {
                     sh 'npm install'
+                    sh 'cp /var/www/html/index.html public/index.html'
                 }
             }
         }
