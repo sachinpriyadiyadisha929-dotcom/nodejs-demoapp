@@ -1,14 +1,13 @@
 pipeline {
   agent any 
     environment {
-      S3_BUCKET: 'devops2026pipelinefriday'
+      S3_BUCKET= 'devops2026pipelinefriday'
     }
         
     stages {
       stage('Checkout') {
         steps {
-          git branch: main
-          git URL:"https://github.com/sachinpriyadiyadisha929-dotcom/nodejs-demoapp.git"
+          git branch: 'main', url:"https://github.com/sachinpriyadiyadisha929-dotcom/nodejs-demoapp.git"
         }
       }
       stage('Build') {
