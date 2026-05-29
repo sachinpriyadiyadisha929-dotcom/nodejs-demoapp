@@ -19,7 +19,7 @@ pipeline {
       stage('Deploy on S3') {
         steps {
           sh '''
-          aws s3 cp ./dist s3://$S3_BUCKET/ --recursive
+          aws s3 sync dist/ s3://$S3_BUCKET/ --recursive
           '''
         }
       }
