@@ -20,7 +20,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('src')
+                dir('src') {
                     sh 'npm install'
                     sh 'npm run build'
             }
