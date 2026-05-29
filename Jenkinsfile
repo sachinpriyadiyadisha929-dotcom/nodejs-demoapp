@@ -20,15 +20,16 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
+                dir('src')
+                    sh 'npm install'
+                    sh 'npm run build'
             }
         }
 
         stage('Deploy to S3') {
             steps {
                 sh '''
-                aws s3 sync . s3://$S3_BUCKET --delete
+                aws s3 sync src/public s3://$S3_BUCKET --delete
                 '''
             }
         }
